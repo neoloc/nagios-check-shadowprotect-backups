@@ -36,7 +36,7 @@ $NagiosCrit_Hours = "24"
 # get the event data for the local machine
 $FailEvents = Get-WinEvent -FilterHashtable @{logname="application"; id=1121} -MaxEvents 10 -ErrorAction SilentlyContinue
 $AbortEvents = Get-WinEvent -FilterHashtable @{logname="application"; id=1122} -MaxEvents 10 -ErrorAction SilentlyContinue
-$SuccessEvents = Get-WinEvent -FilterHashtable @{logname="application"; id=1122} -MaxEvents 10 -ErrorAction SilentlyContinue
+$SuccessEvents = Get-WinEvent -FilterHashtable @{logname="application"; id=1120} -MaxEvents 10 -ErrorAction SilentlyContinue
 
 # FAILED BACKUPS
 # check for critical alerts (failed within last $NagiosCrit_Hours hours)
