@@ -34,7 +34,7 @@ $NagiosWarn_Hours = "48"
 $NagiosCrit_Hours = "24"
 
 # check if if using Shadowprotect or ShadowprotectSPX
-If (get-service -name ShadowProtectSVC){
+If (get-service -name ShadowProtectSVC -ErrorAction SilentlyContinue){
   # check if the host is Windows 2008r2/7 (Windows 6.1) or newer
   If ([Environment]::OSVersion.Version -ge (new-object 'Version' 6,1))
   {
@@ -50,7 +50,7 @@ If (get-service -name ShadowProtectSVC){
     $AbortEvents = Get-WinEvent -LogName Application -MaxEvents 2000 | Where-Object{($_.ID -eq "1121") -and ($_.ProviderName -eq "ShadowProtectSVC")}
     $SuccessEvents = Get-WinEvent -LogName Application -MaxEvents 2000 | Where-Object{($_.ID -eq "1120") -and ($_.ProviderName -eq "ShadowProtectSVC")}
   }
-}elseif (get-service -name SPXService){
+}elseif (get-service -name SPXService -ErrorAction SilentlyContinue){
   # check if the host is Windows 2008r2/7 (Windows 6.1) or newer
   If ([Environment]::OSVersion.Version -ge (new-object 'Version' 6,1))
   {
