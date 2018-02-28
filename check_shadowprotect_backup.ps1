@@ -167,7 +167,7 @@ Foreach ($event in $SuccessEvents)
   If ($((get-date).AddHours(-$NagiosWarn_Hours)) -lt $event.TimeCreated)
   {
     # Set the nagios alert description
-    $NagiosDescription = "Shadowprotect has successful backups in the last " + $NagiosWarn_Hours + " hours but not " + $NagiosCrit_Hours + " hours.
+    $NagiosDescription = "Shadowprotect has successful backups in the last " + $NagiosWarn_Hours + " hours but not " + $NagiosCrit_Hours + " hours."
 
     # Set the status to warning.
     $NagiosStatus = "1"
