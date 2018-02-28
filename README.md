@@ -21,4 +21,26 @@ check_shadowprotect_backup=cmd /c echo C:\Manage\Scripts\nagios-check-shadowprot
 
 ## Nagios Side
 
-TODO
+1) Connect to the monitor1 host internally. Refer to TeamPass for credentials.
+
+2) Edit the '/etc/nagios3/clients/common-hostgroups.cfg' file.
+
+    nano /etc/nagios3/clients/common-hostgroups.cfg
+    
+3) Search for 'parent-check-shadowprotect-backups'
+
+    inside nano, press CTRL+W and then paste the 'parent-check-shadowprotect-backups' search string
+
+4) Add the hosts/hostgroups that represent the servers you want to check to the 'parent-check-shadowprotect-backups' hostgroup.
+
+5) Save and exit the file.
+
+    inside nano, CTRL+X to save and exit
+
+6) Check the configuration syntax is OK.
+
+    verifynagios
+
+7) Restart nagios
+
+    service nagios3 restart
