@@ -180,7 +180,7 @@ Foreach ($event in $SuccessEvents)
 }
 
 # else if no failures, aborts or successes. Are backups even running?
-If ($NagiosStatus == "0")
+If ($NagiosStatus -eq "0")
 {
   # Set the nagios alert description
   $NagiosDescription = "Shadowprotect has has no backup reports in the last " + $NagiosWarn_Hours + " hours"
